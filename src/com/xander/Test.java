@@ -19,7 +19,7 @@ public class Test {
    public static void main(String[] args) {
       
       P02_Collection obj = new P02_Collection();
-      obj.linkedListDisplay();
+      obj.setDisplay();
 
    }
 }
