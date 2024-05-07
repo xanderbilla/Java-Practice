@@ -1,8 +1,10 @@
 package com.xander.UNIT_6_Collection;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 public class P02_Collection {
@@ -33,7 +35,7 @@ public class P02_Collection {
      *      + addAll(Collection c): Appends all of the elements in the specified collection to 
      *        the end of this list, in the order that they are returned by the specified collection's iterator.
      *      
-     *      + remove(Object o): Removes the first occurrence of the specified element from the list.
+     *      + remove(): Removes the first occurrence of the specified element from the list.
      *      + removeAll(Collection c): Removes all of the elements from the list that are present in 
      *        the specified collection.
      * 
@@ -44,7 +46,7 @@ public class P02_Collection {
      *      + containsAll(Collection c): Returns true if the list contains all of the elements in the specified collection.
      */
 
-    public void listDisplay() {
+    public void arrayListDisplay() {
         /*
          * List:
          *      - List is an interface
@@ -53,7 +55,25 @@ public class P02_Collection {
          *      - Duplicate values can be stored.
          *      - List interface is implemented by ArrayList, LinkedList, Vector, and Stack classes.
          *
-         * List interface methods: 
+         *  
+         *  List (I)
+         *      |
+         *      + ArrayList (C)
+         *      |
+         *      + LinkedList (C) #goto linkedListDisplay()
+         *      |
+         *      + Vector (C)
+         *      |
+         *      + Stack (C)
+         * 
+         * ArrayList and operations:
+         *      - ArrayList is a class
+         *      - It is a class that provides a resizable array and implements the List interface.
+         *      - It is an ordered collection of objects in which duplicate values can be stored.
+         *      - ArrayList maintains the insertion order and is non-synchronized.
+         *      - In ArrayList, manipulation is fast because no shifting is required.
+         *  
+         * ArrayList methods: 
          *      + add(int index, Object element): Inserts the specified element at the specified 
          *        position in the list.
          *      + addAll(int index, Collection c): Inserts all of the elements in the specified
@@ -64,17 +84,8 @@ public class P02_Collection {
          *      + indexOf(Object o): Returns the index of the first occurrence of the specified element in the list.
          *      + lastIndexOf(Object o): Returns the index of the last occurrence of the specified element in the list.
          * 
-         *  List (I)
-         *      |
-         *      + ArrayList (C)
-         *      |
-         *      + LinkedList (C)
-         *      |
-         *      + Vector (C)
-         *      |
-         *      + Stack (C)
-         * 
          */
+
         List<Integer> l1 = new ArrayList<>();
         l1.add(100);
         l1.add(200);
@@ -132,13 +143,19 @@ public class P02_Collection {
 
     }
     
-    public void listUtilDisplay() {
+    public void arrayListUtilDisplay() {
         /*
          * Using collections utility class for additional functionalities such as sort, reverse, etc.
          * 
          * Collections methods:
          * 
          *    + sort(List list): Sorts the list in ascending order.
+         *    + binarySearch(List list, Object key): Searches the specified list for the specified object 
+         *      using the binary search algorithm.
+         *    + max(Collection c): Returns the maximum element in the specified collection.
+         *    + min(Collection c): Returns the minimum element in the specified collection.
+         *    + frequency(Collection c, Object o): Returns the number of elements in the specified 
+         *      collection equal to the specified object.         * 
          *    + reverse(List list): Reverses the order of elements in the list.
          *    + shuffle(List list): Randomly permutes the list.
          *    + swap(List list, int i, int j): Swaps the elements at the specified positions in the list.
@@ -168,6 +185,49 @@ public class P02_Collection {
 
         System.out.println("Sorted list: " + sortedList);
 
+
+        /*
+         * Converting existing array to list
+         */
+
+          Integer arr[] = { 1, 2, 9, 7, 6 }; //Must be Integer (Wrapper class) not int
+ 
+          List<Integer> arrList = new ArrayList<>(Arrays.asList(arr));
+          System.out.println("Array to list: " + arrList);
+
+    }
+
+    public void linkedListDisplay(){
+
+        /*
+         * LinkedList and operations:
+         *      - LinkedList is a class
+         *      - It is a class that provides a linked-list data structure.
+         *      - It inherits the AbstractList class and implements List and Deque interfaces.
+         *      - It can contain duplicate elements.
+         *      - It maintains the insertion order and is not synchronized.
+         *      - In LinkedList, the manipulation is fast because no shifting is required.
+         * 
+         *
+         *  LinkedList methods:
+         *      + addFirst(Object o): Inserts the specified element at the beginning of the list.
+         *      + addLast(Object o): Inserts the specified element at the end of the list.
+         *      + getFirst(): Returns the first element in the list.
+         *      + getLast(): Returns the last element in the list.
+         *      + removeFirst(): Removes the first element from the list.
+         *      + removeLast(): Removes the last element from the list.
+         *
+         */
+
+         LinkedList<Integer> l1 = new LinkedList<>();
+         l1.add(100);
+         l1.add(0, 200);
+
+
+         for(int i : l1) {
+             System.out.print(i + " -> ");
+         }
+         System.out.println("NULL");
     }
 
     public void setDisplay() {
